@@ -1,0 +1,13 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: k0s-cluster
+spec:
+  hosts:
+    - role: controller+worker
+      noTaints: true
+      ssh:
+        address: ns3128072.ip-54-38-195.eu
+        user: debian
+  k0s:
+    version: v1.30.4+k0s.0
