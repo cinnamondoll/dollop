@@ -21,8 +21,12 @@ populate environment with our `versions.yml` vars:
 
     eval $(awk -F ": " '{print $1"="$2}' versions.yml)
 
-install argocd and connect it to our repo:
+install argocd and patch it:
 
     kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/$argocd_version/manifests/core-install.yaml
+    kubectl patch clusterrolebinding argocd-application-controller --type='merge' -p "$(cat argocd.patch.yml)"
+
+add this repo's `/manifests/` folder as a argocd app, recursively applying everything in it as a argocd app too:
+
     kubectl apply -f manifests.yml
 
