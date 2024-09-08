@@ -19,6 +19,9 @@ spec:
       allowEmpty: true
       prune: true
       selfHeal: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
   ignoreDifferences:
   - group: apps
     kind: Deployment
