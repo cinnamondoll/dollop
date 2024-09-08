@@ -11,3 +11,12 @@ spec:
         user: debian
   k0s:
     version: v1.30.4+k0s.0
+    config:
+      apiVersion: k0s.k0sproject.io/v1beta1
+      kind: ClusterConfig
+      metadata:
+        name: k0s-cluster
+      spec:
+        api:
+          extraArgs:
+            service-node-port-range: 80-32767
