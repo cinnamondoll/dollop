@@ -1,5 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+metadata:
+  name: longhorn
 spec:
   sources:
   - repoURL: 'https://github.com/longhorn/charts.git'
