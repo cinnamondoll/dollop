@@ -5,7 +5,7 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: 'https://github.com/longhorn/charts.git'
+  - repoURL: 'https://charts.longhorn.io'
     chart: longhorn
     targetRevision: 1.7.1
   destination:
