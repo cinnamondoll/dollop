@@ -1,0 +1,9 @@
+---
+- hosts: servers
+  become: yes
+  tasks:
+    - name: install debian packages
+      apt:
+        name: open-iscsi
+        state: present
+

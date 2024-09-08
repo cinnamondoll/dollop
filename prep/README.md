@@ -4,6 +4,10 @@ install kubectl and friends to `/usr/local/bin` on all `hosts`:
 
     ansible-playbook -i hosts tools.yml --ask-become-pass
 
+install deps for longhorn storage on `[servers]` only:
+
+    ansible-playbook -i hosts deps.yml
+
 install k0s cluster:
 
     k0sctl apply
