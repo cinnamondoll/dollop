@@ -1,0 +1,85 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - versions.yml
+  tasks:
+    - name: make missing dirs
+      file:
+        path: /etc/bash_completion.d
+        state: directory
+
+    # k0s
+    - name: download k0sctl
+      get_url:
+        url: https://github.com/k0sproject/k0sctl/releases/download/{{ k0sctl_version }}/k0sctl-linux-x64
+        dest: /usr/local/bin/k0sctl
+        mode: '0755'
+
+    - name: k0sctl completion
+      shell: k0sctl completion bash > /etc/bash_completion.d/k0sctl
+
+    # kubectl
+    - name: download kubectl
+      get_url:
+        url: https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
+        dest: /usr/local/bin/kubectl
+        mode: '0755'
+
+    - name: kubectl completion
+      shell: kubectl completion bash > /etc/bash_completion.d/kubectl
+
+    # k9s
+    - name: download k9s
+      get_url:
+        url: https://github.com/derailed/k9s/releases/download/{{ k9s_version }}/k9s_Linux_amd64.tar.gz
+        dest: /tmp/k9s_Linux_amd64.tar.gz
+        mode: '0644'
+
+    - name: unpack k9s and make executable
+      shell: |
+        tar xzvf /tmp/k9s_Linux_amd64.tar.gz -C /usr/local/bin k9s
+        chmod 755 /usr/local/bin/k9s
+
+    - name: k9s completion
+      shell: k9s completion bash > /etc/bash_completion.d/k9s
+
+    # crictl
+    - name: download crictl
+      get_url:
+        url: https://github.com/kubernetes-sigs/cri-tools/releases/download/{{ crictl_version }}/crictl-{{ crictl_version }}-linux-amd64.tar.gz
+        dest: /tmp/crictl.tar.gz
+        mode: '0644'
+
+    - name: unpack crictl and make executable
+      shell: |
+        tar xzvf /tmp/crictl.tar.gz -C /usr/local/bin crictl
+        chmod 755 /usr/local/bin/crictl
+
+    - name: crictl completion
+      shell: crictl completion bash > /etc/bash_completion.d/crictl
+
+    # argocd
+    - name: download argocd
+      get_url:
+        url: https://github.com/argoproj/argo-cd/releases/download/{{ argocd_version }}/argocd-linux-amd64
+        dest: /usr/local/bin/argocd
+        mode: '0755'
+
+    - name: argocd completion
+      shell: argocd completion bash > /etc/bash_completion.d/argocd
+
+    # helm
+    - name: download helm
+      get_url:
+        url: https://get.helm.sh/helm-{{ helm_version }}-linux-amd64.tar.gz
+        dest: /tmp/helm.tar.gz
+        mode: '0644'
+
+    - name: unpack helm and make executable
+      shell: |
+        tar xzvf /tmp/helm.tar.gz --strip-components=1 -C /usr/local/bin linux-amd64/helm
+        chmod 755 /usr/local/bin/helm
+
+    - name: helm completion
+      shell: helm completion bash > /etc/bash_completion.d/helm
