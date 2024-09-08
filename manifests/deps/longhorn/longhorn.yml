@@ -8,6 +8,10 @@ spec:
   - repoURL: 'https://charts.longhorn.io'
     chart: longhorn
     targetRevision: 1.7.1
+    helm:
+      values: |
+        helmPreUpgradeCheckerJob:
+          enabled: false
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: longhorn-system
