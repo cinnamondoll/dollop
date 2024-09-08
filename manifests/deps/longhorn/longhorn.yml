@@ -1,0 +1,7 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  sources:
+  - repoURL: 'https://github.com/longhorn/charts.git'
+    chart: longhorn
+    targetRevision: 1.7.1
