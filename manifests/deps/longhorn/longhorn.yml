@@ -9,7 +9,7 @@ spec:
     chart: longhorn
     targetRevision: 1.7.1
   destination:
-    server: 'https://kubernetes.default.svc':
+    server: 'https://kubernetes.default.svc'
     namespace: longhorn-system
   syncPolicy:
     automated:
