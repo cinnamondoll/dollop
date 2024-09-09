@@ -11,7 +11,7 @@ parameters:
   staleReplicaTimeout: "10080"
   fromBackup: ""
   fsType: "ext4"
-  migratable: true
+  migratable: "true"
   dataLocality: "best-effort"
   replicaAutoBalance: "best-effort"
   nodeSelector: "az=pl"
