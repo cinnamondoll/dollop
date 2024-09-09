@@ -1,0 +1,10 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: botzin
+  namespace: default
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  resourceNames: ["botzin"]  # Limit the role to only the "botzin" deployment
+  verbs: ["patch"]  # Required for `kubectl rollout restart`
