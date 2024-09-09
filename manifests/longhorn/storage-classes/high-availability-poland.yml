@@ -1,0 +1,17 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: high-availability-poland
+provisioner: driver.longhorn.io
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+parameters:
+  numberOfReplicas: "2"
+  staleReplicaTimeout: "10080"
+  fromBackup: ""
+  fsType: "ext4"
+  migratable: true
+  dataLocality: "best-effort"
+  replicaAutoBalance: "best-effort"
+  nodeSelector: "az=pl"
