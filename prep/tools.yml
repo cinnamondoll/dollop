@@ -4,12 +4,15 @@
   vars_files:
     - versions.yml
   tasks:
-    - name: make missing dirs
+    - name: make missing dirs for shell completion
       file:
-        path: /etc/bash_completion.d
+        path: "{{ item }}"
         state: directory
+      loop:
+        - /etc/bash_completion.d
+        - /usr/local/share/zsh/site-functions/
 
-    # k0s
+    # k0sctl
     - name: download k0sctl
       get_url:
         url: https://github.com/k0sproject/k0sctl/releases/download/{{ k0sctl_version }}/k0sctl-linux-x64
@@ -17,7 +20,9 @@
         mode: '0755'
 
     - name: k0sctl completion
-      shell: k0sctl completion bash > /etc/bash_completion.d/k0sctl
+      shell: |
+        k0sctl completion bash > /etc/bash_completion.d/k0sctl
+        k0sctl completion zsh  > /usr/local/share/zsh/site-functions/_k0sctl
 
     # kubectl
     - name: download kubectl
@@ -27,7 +32,9 @@
         mode: '0755'
 
     - name: kubectl completion
-      shell: kubectl completion bash > /etc/bash_completion.d/kubectl
+      shell: |
+        kubectl completion bash > /etc/bash_completion.d/kubectl
+        kubectl completion zsh  > /usr/local/share/zsh/site-functions/_kubectl
 
     # k9s
     - name: download k9s
@@ -42,7 +49,9 @@
         chmod 755 /usr/local/bin/k9s
 
     - name: k9s completion
-      shell: k9s completion bash > /etc/bash_completion.d/k9s
+      shell: |
+        k9s completion bash > /etc/bash_completion.d/k9s
+        k9s completion zsh  > /usr/local/share/zsh/site-functions/_k9s
 
     # crictl
     - name: download crictl
@@ -57,7 +66,9 @@
         chmod 755 /usr/local/bin/crictl
 
     - name: crictl completion
-      shell: crictl completion bash > /etc/bash_completion.d/crictl
+      shell: |
+        crictl completion bash > /etc/bash_completion.d/crictl
+        crictl completion zsh  > /usr/local/share/zsh/site-functions/_crictl
 
     # argocd
     - name: download argocd
@@ -67,7 +78,9 @@
         mode: '0755'
 
     - name: argocd completion
-      shell: argocd completion bash > /etc/bash_completion.d/argocd
+      shell: |
+        argocd completion bash > /etc/bash_completion.d/argocd
+        argocd completion zsh  > /usr/local/share/zsh/site-functions/_argocd
 
     # helm
     - name: download helm
@@ -82,4 +95,6 @@
         chmod 755 /usr/local/bin/helm
 
     - name: helm completion
-      shell: helm completion bash > /etc/bash_completion.d/helm
+      shell: |
+        helm completion bash > /etc/bash_completion.d/helm
+        helm completion zsh  > /usr/local/share/zsh/site-functions/_helm
