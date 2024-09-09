@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: botzin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: botzin
+  template:
+    metadata:
+      labels:
+        app: botzin
+    spec:
+      containers:
+      - name: botzin
+        image: cinnamondoll/botzin
+        imagePullPolicy: Always
+        env:
+        - name: DISCORD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: botzin
+              key: DISCORD_TOKEN
