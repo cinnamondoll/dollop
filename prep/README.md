@@ -26,6 +26,21 @@ install argocd and patch it:
     kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/$argocd_version/manifests/core-install.yaml
     kubectl patch clusterrolebinding argocd-application-controller --type='merge' -p "$(cat argocd.patch.yml)"
 
+generate a ssh-key pair for argocd <-> github connection:
+
+    ssh-keygen -t ed25519 -f ~/.ssh/argocd
+
+add the ssh-key to the secrets github repo:
+
+- visit https://github.com/cinnamondoll/secrets/settings/keys/new
+- paste the public portion of the key from earlier `cat ~/.ssh/argocd.pub`
+- no write access needed
+
+add the secrets repo to argocd:
+
+    argocd login --core
+    argocd repo add git@github.com:cinnamondoll/secrets.git --ssh-private-key-path ~/.ssh/argocd
+
 add this repo's `/manifests/` folder as a argocd app, recursively applying everything in it as a argocd app too:
 
     kubectl apply -f manifests.yml
