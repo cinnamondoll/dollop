@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: unmined
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: unmined-cli
+            image: ghcr.io/cinnamondoll/unmined-cli:latest
+            command: ["/bin/sh", "-c"]
+            args:
+              - |
+                /unmined/unmined-cli web render \
+                  --world="/data/Treehouse" \
+                  --output="/mnt" \
+                  --background "#444444" \
+                  --shadows \
+                  --players
+            volumeMounts:
+            - name: minecraft
+              mountPath: /data
+            - name: unmined
+              mountPath: /mnt
+        volumes:
+        - name: minecraft
+          persistentVolumeClaim:
+            claimName: minecraft
+        - name: unmined
+          persistentVolumeClaim:
+            claimName: unmined
