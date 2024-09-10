@@ -23,6 +23,8 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: minecraft
+          stdin: true
+          tty: true
       volumes:
         - name: minecraft
           persistentVolumeClaim:
