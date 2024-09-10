@@ -25,10 +25,11 @@ spec:
               mountPath: /data
             - name: unmined
               mountPath: /mnt
-        volumes:
-        - name: minecraft
-          persistentVolumeClaim:
-            claimName: minecraft
-        - name: unmined
-          persistentVolumeClaim:
-            claimName: unmined
+          restartPolicy: Never
+          volumes:
+          - name: minecraft
+            persistentVolumeClaim:
+              claimName: minecraft
+          - name: unmined
+            persistentVolumeClaim:
+              claimName: unmined
