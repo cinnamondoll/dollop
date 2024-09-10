@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unmined
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unmined
+  template:
+    metadata:
+      labels:
+        app: unmined
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        volumeMounts:
+        - name: unmined
+          mountPath: /usr/share/nginx/html
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: unmined
+        persistentVolumeClaim:
+          claimName: unmined
