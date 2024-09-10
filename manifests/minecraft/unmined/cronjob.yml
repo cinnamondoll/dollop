@@ -23,14 +23,18 @@ spec:
               - render
               - --world=/data/Treehouse
               - --output=/mnt
-              - --background="#444444"
-              - --shadows
+              - --background=#444444
+              - --shadows=3do
               - --players
+              - --showgrid=false
             volumeMounts:
             - name: minecraft
               mountPath: /data
             - name: unmined
               mountPath: /mnt
+            - name: config
+              mountPath: /unmined-cli/config/playernames.txt
+              subPath: playernames.txt
           restartPolicy: Never
           volumes:
           - name: minecraft
@@ -39,3 +43,6 @@ spec:
           - name: unmined
             persistentVolumeClaim:
               claimName: unmined
+          - name: config
+            configMap:
+              name: unmined
