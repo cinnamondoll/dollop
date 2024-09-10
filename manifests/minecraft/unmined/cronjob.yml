@@ -1,25 +1,31 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: unmined
+  name: unmined-render
 spec:
   schedule: "* * * * *"
+  concurrencyPolicy: Forbid     # Prevents jobs from overlapping
+  successfulJobsHistoryLimit: 1 # Keep only the last 1 successful job
+  failedJobsHistoryLimit: 1     # Keep only the last 1 failed job
   jobTemplate:
     spec:
       template:
         spec:
+          securityContext:
+            runAsUser: 9001
+            fsGroup: 9001
           containers:
           - name: unmined-cli
-            image: ghcr.io/cinnamondoll/unmined-cli:latest
-            command: ["/bin/sh", "-c"]
+            image: ghcr.io/cinnamondoll/unmined-cli:0.19.43
+            imagePullPolicy: IfNotPresent
             args:
-              - |
-                /unmined/unmined-cli web render \
-                  --world="/data/Treehouse" \
-                  --output="/mnt" \
-                  --background "#444444" \
-                  --shadows \
-                  --players
+              - web
+              - render
+              - --world=/data/Treehouse
+              - --output=/mnt
+              - --background="#444444"
+              - --shadows
+              - --players
             volumeMounts:
             - name: minecraft
               mountPath: /data
