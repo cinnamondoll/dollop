@@ -13,7 +13,7 @@ spec:
         app: unmined
     spec:
       containers:
-      - name: web
+      - name: darkhttpd
         image: ghcr.io/cinnamondoll/darkhttpd:latest
         volumeMounts:
         - name: unmined
