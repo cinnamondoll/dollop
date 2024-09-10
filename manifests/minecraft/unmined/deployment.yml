@@ -13,11 +13,11 @@ spec:
         app: unmined
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
+      - name: web
+        image: ghcr.io/cinnamondoll/darkhttpd:latest
         volumeMounts:
         - name: unmined
-          mountPath: /usr/share/nginx/html
+          mountPath: /var/www/htdocs
         ports:
         - containerPort: 80
       volumes:
