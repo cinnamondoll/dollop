@@ -1,0 +1,138 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aria
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aria
+  template:
+    metadata:
+      labels:
+        app: aria
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: aria
+        image: ghcr.io/cinnamondoll/aria:latest
+        volumeMounts:
+        - name: data
+          mountPath: /mnt/data/hold
+        - name: session
+          mountPath: /var/lib/aria  # For the session file
+        - name: config
+          mountPath: /etc/aria.conf
+          subPath: aria.conf
+        workingDir: /var/lib/aria  # Equivalent to WorkingDirectory
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/usr/bin/kill", "-HUP", "1"]  # Equivalent to ExecReload
+        securityContext:
+          runAsUser: 1000  # Run as a non-root user (adjust as needed)
+        ports:
+        - containerPort: 6800 # rpc port
+        - containerPort: 6881
+        - containerPort: 6882
+        - containerPort: 6883
+        - containerPort: 6884
+        - containerPort: 6885
+        - containerPort: 6886
+        - containerPort: 6887
+        - containerPort: 6888
+        - containerPort: 6889
+        - containerPort: 6890
+        - containerPort: 6891
+        - containerPort: 6892
+        - containerPort: 6893
+        - containerPort: 6894
+        - containerPort: 6895
+        - containerPort: 6896
+        - containerPort: 6897
+        - containerPort: 6898
+        - containerPort: 6899
+        - containerPort: 6900
+        - containerPort: 6901
+        - containerPort: 6902
+        - containerPort: 6903
+        - containerPort: 6904
+        - containerPort: 6905
+        - containerPort: 6906
+        - containerPort: 6907
+        - containerPort: 6908
+        - containerPort: 6909
+        - containerPort: 6910
+        - containerPort: 6911
+        - containerPort: 6912
+        - containerPort: 6913
+        - containerPort: 6914
+        - containerPort: 6915
+        - containerPort: 6916
+        - containerPort: 6917
+        - containerPort: 6918
+        - containerPort: 6919
+        - containerPort: 6920
+        - containerPort: 6921
+        - containerPort: 6922
+        - containerPort: 6923
+        - containerPort: 6924
+        - containerPort: 6925
+        - containerPort: 6926
+        - containerPort: 6927
+        - containerPort: 6928
+        - containerPort: 6929
+        - containerPort: 6930
+        - containerPort: 6931
+        - containerPort: 6932
+        - containerPort: 6933
+        - containerPort: 6934
+        - containerPort: 6935
+        - containerPort: 6936
+        - containerPort: 6937
+        - containerPort: 6938
+        - containerPort: 6939
+        - containerPort: 6940
+        - containerPort: 6941
+        - containerPort: 6942
+        - containerPort: 6943
+        - containerPort: 6944
+        - containerPort: 6945
+        - containerPort: 6946
+        - containerPort: 6947
+        - containerPort: 6948
+        - containerPort: 6949
+        - containerPort: 6950
+        - containerPort: 6951
+        - containerPort: 6952
+        - containerPort: 6953
+        - containerPort: 6954
+        - containerPort: 6955
+        - containerPort: 6956
+        - containerPort: 6957
+        - containerPort: 6958
+        - containerPort: 6959
+        - containerPort: 6960
+        - containerPort: 6961
+        - containerPort: 6962
+        - containerPort: 6963
+        - containerPort: 6964
+        - containerPort: 6965
+        - containerPort: 6966
+        - containerPort: 6967
+        - containerPort: 6968
+      - name: ariang
+        image: ghcr.io/cinnamondoll/ariang:latest
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: anime
+      - name: session
+        persistentVolumeClaim:
+          claimName: aria-session
+      - name: config
+        configMap:
+          name: aria  # Mount the aria.conf from ConfigMap

@@ -1,0 +1,449 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aria-torrent
+spec:
+  selector:
+    app: aria
+  ports:
+    - name: torrent-6881
+      protocol: TCP
+      port: 6881
+      targetPort: 6881
+      nodePort: 6881
+    - name: torrent-6882
+      protocol: TCP
+      port: 6882
+      targetPort: 6882
+      nodePort: 6882
+    - name: torrent-6883
+      protocol: TCP
+      port: 6883
+      targetPort: 6883
+      nodePort: 6883
+    - name: torrent-6884
+      protocol: TCP
+      port: 6884
+      targetPort: 6884
+      nodePort: 6884
+    - name: torrent-6885
+      protocol: TCP
+      port: 6885
+      targetPort: 6885
+      nodePort: 6885
+    - name: torrent-6886
+      protocol: TCP
+      port: 6886
+      targetPort: 6886
+      nodePort: 6886
+    - name: torrent-6887
+      protocol: TCP
+      port: 6887
+      targetPort: 6887
+      nodePort: 6887
+    - name: torrent-6888
+      protocol: TCP
+      port: 6888
+      targetPort: 6888
+      nodePort: 6888
+    - name: torrent-6889
+      protocol: TCP
+      port: 6889
+      targetPort: 6889
+      nodePort: 6889
+    - name: torrent-6890
+      protocol: TCP
+      port: 6890
+      targetPort: 6890
+      nodePort: 6890
+    - name: torrent-6891
+      protocol: TCP
+      port: 6891
+      targetPort: 6891
+      nodePort: 6891
+    - name: torrent-6892
+      protocol: TCP
+      port: 6892
+      targetPort: 6892
+      nodePort: 6892
+    - name: torrent-6893
+      protocol: TCP
+      port: 6893
+      targetPort: 6893
+      nodePort: 6893
+    - name: torrent-6894
+      protocol: TCP
+      port: 6894
+      targetPort: 6894
+      nodePort: 6894
+    - name: torrent-6895
+      protocol: TCP
+      port: 6895
+      targetPort: 6895
+      nodePort: 6895
+    - name: torrent-6896
+      protocol: TCP
+      port: 6896
+      targetPort: 6896
+      nodePort: 6896
+    - name: torrent-6897
+      protocol: TCP
+      port: 6897
+      targetPort: 6897
+      nodePort: 6897
+    - name: torrent-6898
+      protocol: TCP
+      port: 6898
+      targetPort: 6898
+      nodePort: 6898
+    - name: torrent-6899
+      protocol: TCP
+      port: 6899
+      targetPort: 6899
+      nodePort: 6899
+    - name: torrent-6900
+      protocol: TCP
+      port: 6900
+      targetPort: 6900
+      nodePort: 6900
+    - name: torrent-6901
+      protocol: TCP
+      port: 6901
+      targetPort: 6901
+      nodePort: 6901
+    - name: torrent-6902
+      protocol: TCP
+      port: 6902
+      targetPort: 6902
+      nodePort: 6902
+    - name: torrent-6903
+      protocol: TCP
+      port: 6903
+      targetPort: 6903
+      nodePort: 6903
+    - name: torrent-6904
+      protocol: TCP
+      port: 6904
+      targetPort: 6904
+      nodePort: 6904
+    - name: torrent-6905
+      protocol: TCP
+      port: 6905
+      targetPort: 6905
+      nodePort: 6905
+    - name: torrent-6906
+      protocol: TCP
+      port: 6906
+      targetPort: 6906
+      nodePort: 6906
+    - name: torrent-6907
+      protocol: TCP
+      port: 6907
+      targetPort: 6907
+      nodePort: 6907
+    - name: torrent-6908
+      protocol: TCP
+      port: 6908
+      targetPort: 6908
+      nodePort: 6908
+    - name: torrent-6909
+      protocol: TCP
+      port: 6909
+      targetPort: 6909
+      nodePort: 6909
+    - name: torrent-6910
+      protocol: TCP
+      port: 6910
+      targetPort: 6910
+      nodePort: 6910
+    - name: torrent-6911
+      protocol: TCP
+      port: 6911
+      targetPort: 6911
+      nodePort: 6911
+    - name: torrent-6912
+      protocol: TCP
+      port: 6912
+      targetPort: 6912
+      nodePort: 6912
+    - name: torrent-6913
+      protocol: TCP
+      port: 6913
+      targetPort: 6913
+      nodePort: 6913
+    - name: torrent-6914
+      protocol: TCP
+      port: 6914
+      targetPort: 6914
+      nodePort: 6914
+    - name: torrent-6915
+      protocol: TCP
+      port: 6915
+      targetPort: 6915
+      nodePort: 6915
+    - name: torrent-6916
+      protocol: TCP
+      port: 6916
+      targetPort: 6916
+      nodePort: 6916
+    - name: torrent-6917
+      protocol: TCP
+      port: 6917
+      targetPort: 6917
+      nodePort: 6917
+    - name: torrent-6918
+      protocol: TCP
+      port: 6918
+      targetPort: 6918
+      nodePort: 6918
+    - name: torrent-6919
+      protocol: TCP
+      port: 6919
+      targetPort: 6919
+      nodePort: 6919
+    - name: torrent-6920
+      protocol: TCP
+      port: 6920
+      targetPort: 6920
+      nodePort: 6920
+    - name: torrent-6921
+      protocol: TCP
+      port: 6921
+      targetPort: 6921
+      nodePort: 6921
+    - name: torrent-6922
+      protocol: TCP
+      port: 6922
+      targetPort: 6922
+      nodePort: 6922
+    - name: torrent-6923
+      protocol: TCP
+      port: 6923
+      targetPort: 6923
+      nodePort: 6923
+    - name: torrent-6924
+      protocol: TCP
+      port: 6924
+      targetPort: 6924
+      nodePort: 6924
+    - name: torrent-6925
+      protocol: TCP
+      port: 6925
+      targetPort: 6925
+      nodePort: 6925
+    - name: torrent-6926
+      protocol: TCP
+      port: 6926
+      targetPort: 6926
+      nodePort: 6926
+    - name: torrent-6927
+      protocol: TCP
+      port: 6927
+      targetPort: 6927
+      nodePort: 6927
+    - name: torrent-6928
+      protocol: TCP
+      port: 6928
+      targetPort: 6928
+      nodePort: 6928
+    - name: torrent-6929
+      protocol: TCP
+      port: 6929
+      targetPort: 6929
+      nodePort: 6929
+    - name: torrent-6930
+      protocol: TCP
+      port: 6930
+      targetPort: 6930
+      nodePort: 6930
+    - name: torrent-6931
+      protocol: TCP
+      port: 6931
+      targetPort: 6931
+      nodePort: 6931
+    - name: torrent-6932
+      protocol: TCP
+      port: 6932
+      targetPort: 6932
+      nodePort: 6932
+    - name: torrent-6933
+      protocol: TCP
+      port: 6933
+      targetPort: 6933
+      nodePort: 6933
+    - name: torrent-6934
+      protocol: TCP
+      port: 6934
+      targetPort: 6934
+      nodePort: 6934
+    - name: torrent-6935
+      protocol: TCP
+      port: 6935
+      targetPort: 6935
+      nodePort: 6935
+    - name: torrent-6936
+      protocol: TCP
+      port: 6936
+      targetPort: 6936
+      nodePort: 6936
+    - name: torrent-6937
+      protocol: TCP
+      port: 6937
+      targetPort: 6937
+      nodePort: 6937
+    - name: torrent-6938
+      protocol: TCP
+      port: 6938
+      targetPort: 6938
+      nodePort: 6938
+    - name: torrent-6939
+      protocol: TCP
+      port: 6939
+      targetPort: 6939
+      nodePort: 6939
+    - name: torrent-6940
+      protocol: TCP
+      port: 6940
+      targetPort: 6940
+      nodePort: 6940
+    - name: torrent-6941
+      protocol: TCP
+      port: 6941
+      targetPort: 6941
+      nodePort: 6941
+    - name: torrent-6942
+      protocol: TCP
+      port: 6942
+      targetPort: 6942
+      nodePort: 6942
+    - name: torrent-6943
+      protocol: TCP
+      port: 6943
+      targetPort: 6943
+      nodePort: 6943
+    - name: torrent-6944
+      protocol: TCP
+      port: 6944
+      targetPort: 6944
+      nodePort: 6944
+    - name: torrent-6945
+      protocol: TCP
+      port: 6945
+      targetPort: 6945
+      nodePort: 6945
+    - name: torrent-6946
+      protocol: TCP
+      port: 6946
+      targetPort: 6946
+      nodePort: 6946
+    - name: torrent-6947
+      protocol: TCP
+      port: 6947
+      targetPort: 6947
+      nodePort: 6947
+    - name: torrent-6948
+      protocol: TCP
+      port: 6948
+      targetPort: 6948
+      nodePort: 6948
+    - name: torrent-6949
+      protocol: TCP
+      port: 6949
+      targetPort: 6949
+      nodePort: 6949
+    - name: torrent-6950
+      protocol: TCP
+      port: 6950
+      targetPort: 6950
+      nodePort: 6950
+    - name: torrent-6951
+      protocol: TCP
+      port: 6951
+      targetPort: 6951
+      nodePort: 6951
+    - name: torrent-6952
+      protocol: TCP
+      port: 6952
+      targetPort: 6952
+      nodePort: 6952
+    - name: torrent-6953
+      protocol: TCP
+      port: 6953
+      targetPort: 6953
+      nodePort: 6953
+    - name: torrent-6954
+      protocol: TCP
+      port: 6954
+      targetPort: 6954
+      nodePort: 6954
+    - name: torrent-6955
+      protocol: TCP
+      port: 6955
+      targetPort: 6955
+      nodePort: 6955
+    - name: torrent-6956
+      protocol: TCP
+      port: 6956
+      targetPort: 6956
+      nodePort: 6956
+    - name: torrent-6957
+      protocol: TCP
+      port: 6957
+      targetPort: 6957
+      nodePort: 6957
+    - name: torrent-6958
+      protocol: TCP
+      port: 6958
+      targetPort: 6958
+      nodePort: 6958
+    - name: torrent-6959
+      protocol: TCP
+      port: 6959
+      targetPort: 6959
+      nodePort: 6959
+    - name: torrent-6960
+      protocol: TCP
+      port: 6960
+      targetPort: 6960
+      nodePort: 6960
+    - name: torrent-6961
+      protocol: TCP
+      port: 6961
+      targetPort: 6961
+      nodePort: 6961
+    - name: torrent-6962
+      protocol: TCP
+      port: 6962
+      targetPort: 6962
+      nodePort: 6962
+    - name: torrent-6963
+      protocol: TCP
+      port: 6963
+      targetPort: 6963
+      nodePort: 6963
+    - name: torrent-6964
+      protocol: TCP
+      port: 6964
+      targetPort: 6964
+      nodePort: 6964
+    - name: torrent-6965
+      protocol: TCP
+      port: 6965
+      targetPort: 6965
+      nodePort: 6965
+    - name: torrent-6966
+      protocol: TCP
+      port: 6966
+      targetPort: 6966
+      nodePort: 6966
+    - name: torrent-6967
+      protocol: TCP
+      port: 6967
+      targetPort: 6967
+      nodePort: 6967
+    - name: torrent-6968
+      protocol: TCP
+      port: 6968
+      targetPort: 6968
+      nodePort: 6968
+  type: NodePort
