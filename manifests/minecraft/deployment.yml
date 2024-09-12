@@ -17,6 +17,7 @@ spec:
           image: marctv/minecraft-papermc-server:1.20.1
           ports:
             - containerPort: 25565
+              hostPort: 25565
           env:
             - name: MEMORYSIZE
               value: "2G"
