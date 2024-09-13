@@ -1,0 +1,54 @@
+name: parallell container build and push
+
+on:
+  push:
+    branches:
+      - blend
+    paths:
+      - 'containers/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        container-dir: ['aria', 'ariang']
+
+    steps:
+    - name: checkout the repo
+      uses: actions/checkout@v2
+
+    # load environment variables from the corresponding .env file dynamically
+    - name: load environment variables from .env
+      id: env
+      run: |
+        echo "loading env for ${{ matrix.container-dir }}"
+        set -o allexport
+        source containers/${{ matrix.container-dir }}/.env
+        set +o allexport
+        echo "::set-output name=version::$version"
+        echo "::set-output name=name::$name"
+      shell: bash
+
+    # print the loaded environment variables to verify
+    - name: verify env variables
+      run: |
+        echo "version=${{ steps.env.outputs.version }}"
+        echo "name=${{ steps.env.outputs.name }}"
+
+    - name: setup docker buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: login to github
+      run: echo "${{ secrets.PAT_TOKEN_PACKAGES }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: build and push ${{ matrix.container-dir }}
+      run: |
+        docker build \
+          --build-arg version=${{ steps.env.outputs.version }} \
+          --build-arg name=${{ steps.env.outputs.name }} \
+          -t ghcr.io/${{ github.repository_owner }}/${{ steps.env.outputs.name }}:${{ steps.env.outputs.version }} \
+          ./containers/${{ matrix.container-dir }}
+
+        docker push \
+          ghcr.io/${{ github.repository_owner }}/${{ steps.env.outputs.name }}:${{ steps.env.outputs.version }}
