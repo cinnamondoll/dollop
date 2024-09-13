@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: checkout the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # load environment variables from the corresponding .env file dynamically
     - name: load environment variables from .env
