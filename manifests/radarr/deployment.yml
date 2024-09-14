@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  labels:
+    app: radarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: radarr
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      containers:
+      - name: radarr
+        image: lscr.io/linuxserver/radarr:5.9.1
+        ports:
+        - containerPort: 7878
+          name: web
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        volumeMounts:
+        - name: radarr
+          mountPath: /config
+        - name: data
+          mountPath: /mnt/data/hold
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 7878
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 7878
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      volumes:
+      - name: radarr
+        persistentVolumeClaim:
+          claimName: radarr
+      - name: data
+        persistentVolumeClaim:
+          claimName: anime
