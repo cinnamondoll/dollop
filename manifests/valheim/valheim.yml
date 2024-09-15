@@ -26,6 +26,8 @@ spec:
         networking:
           serviceType: NodePort
           nodePort: 2456
+        extraEnvironmentVars:
+          BEPINEX: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
