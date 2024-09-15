@@ -17,12 +17,12 @@ spec:
           kind: persistentVolumeClaim
           pvc:
             storageClassName: local-storage
-            size: 1Gi
+            size: 10Gi
         serverStorage:
           kind: persistentVolumeClaim
           pvc:
             storageClassName: local-storage
-            size: 5Gi
+            size: 10Gi
         networking:
           serviceType: NodePort
           nodePort: 2456
