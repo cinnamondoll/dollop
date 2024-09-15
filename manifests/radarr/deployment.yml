@@ -16,7 +16,9 @@ spec:
     spec:
       containers:
       - name: radarr
-        image: lscr.io/linuxserver/radarr:5.9.1
+        #image: lscr.io/linuxserver/radarr:5.9.1
+        image: busybox
+        command: ["sleep","1d"]
         ports:
         - containerPort: 7878
           name: web
