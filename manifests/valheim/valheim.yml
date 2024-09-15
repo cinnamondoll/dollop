@@ -11,6 +11,7 @@ spec:
     helm:
       values: |
         serverName: Treehouse
+        password: qwerty
         storage:
           kind: persistentVolumeClaim
           pvc:
