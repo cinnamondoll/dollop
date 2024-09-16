@@ -7,4 +7,4 @@ rules:
 - apiGroups: ["apps"]
   resources: ["deployments"]
   resourceNames: ["botzin"]  # Limit the role to only the "botzin" deployment
-  verbs: ["patch"]  # Required for `kubectl rollout restart`
+  verbs: ["get", "update", "patch"]  # Required for `kubectl rollout restart`
