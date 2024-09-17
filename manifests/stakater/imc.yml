@@ -7,7 +7,7 @@ spec:
   sources:
   - repoURL: 'https://stakater.github.io/stakater-charts'
     chart: stakater/ingressmonitorcontroller
-    targetRevision: 
+    targetRevision: 2.1.64
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
