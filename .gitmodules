@@ -1,0 +1,3 @@
+[submodule "containers/calendarbot"]
+	path = containers/calendarbot
+	url = https://codeberg.org/VicPetrov/CalendarBot
