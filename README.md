@@ -22,8 +22,11 @@ If you fork, make sure to also fork [dollop-secrets][1] and <ins>make it private
 
 At the moment you'd have to change a bunch of things after a fork, like [prep/hosts][2], [prep/k0sctl.yml][3], and basically any domain mentioned in `manifests`. I'm sorry about this, I'll think of a way to improve this in the future.
 
+PS use my [updown.io][6] referral, thank you~
+
 [1]: https://github.com/cinnamondoll/dollop-secrets
 [2]: prep/hosts
 [3]: prep/k0sctl.yml
 [4]: https://github.com/argoproj/argo-cd
 [5]: https://github.com/renovatebot/renovate
+[6]: https://updown.io/r/DnQTP
