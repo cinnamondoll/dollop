@@ -1,0 +1,13 @@
+apiVersion: endpointmonitor.stakater.com/v1alpha1
+kind: EndpointMonitor
+metadata:
+  name: unmined
+spec:
+  forceHttps: true
+  urlFrom:
+    ingressRef:
+      name: unmined
+  updownConfig:
+    enable: true
+    period: 3600
+    publishPage: true
