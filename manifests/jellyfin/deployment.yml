@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+  labels:
+    app: jellyfin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+      - name: jellyfin
+        image: lscr.io/linuxserver/jellyfin:10.9.11
+        ports:
+        - containerPort: 8096
+          name: web
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        volumeMounts:
+        - name: jellyfin
+          mountPath: /config
+        - name: data
+          mountPath: /mnt/anime
+          subPath: done
+      volumes:
+      - name: jellyfin
+        persistentVolumeClaim:
+          claimName: jellyfin
+      - name: data
+        persistentVolumeClaim:
+          claimName: anime
