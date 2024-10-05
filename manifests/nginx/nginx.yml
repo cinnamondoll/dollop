@@ -12,6 +12,7 @@ spec:
       values: |
         controller:
           service:
+            externalTrafficPolicy: Local
             type: NodePort
             nodePorts:
               http: 80
