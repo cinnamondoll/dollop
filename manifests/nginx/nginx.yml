@@ -16,6 +16,8 @@ spec:
             nodePorts:
               http: 80
               https: 443
+          config:
+            use-proxy-protocol: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: ingress-nginx
