@@ -28,6 +28,8 @@ spec:
         volumeMounts:
         - name: jellyfin
           mountPath: /config
+        - name: transcodes
+          mountPath: /config/cache/transcodes
         - name: data
           mountPath: /mnt/anime
           subPath: done
@@ -35,6 +37,9 @@ spec:
       - name: jellyfin
         persistentVolumeClaim:
           claimName: jellyfin
+      - name: transcodes
+        persistentVolumeClaim:
+          claimName: transcodes
       - name: data
         persistentVolumeClaim:
           claimName: anime
