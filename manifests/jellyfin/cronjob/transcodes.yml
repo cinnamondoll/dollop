@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cleanup-transcodes
+spec:
+  schedule: "0 6 * * *"  # Runs daily at 6 AM
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cleanup
+            image: alpine:latest  # Lightweight image with 'find' command
+            volumeMounts:
+            - name: transcodes
+              mountPath: /transcodes
+            command:
+            - /bin/sh
+            - -c
+            - |
+              find /transcodes -mindepth 1 -mtime +1 -delete
+          volumes:
+          - name: transcodes
+            persistentVolumeClaim:
+              claimName: transcodes
+          restartPolicy: OnFailure
