@@ -18,7 +18,7 @@ spec:
             - /bin/sh
             - -c
             - |
-              find /transcodes -mindepth 1 -mtime +1 -delete
+              find /transcodes -mindepth 1 -mtime +1 -delete -print
           volumes:
           - name: transcodes
             persistentVolumeClaim:
