@@ -1,0 +1,15 @@
+apiVersion: endpointmonitor.stakater.com/v1alpha1
+kind: EndpointMonitor
+metadata:
+  name: radarr
+  annotations:
+    site: radarr.vanad.is
+spec:
+  forceHttps: true
+  urlFrom:
+    ingressRef:
+      name: radarr
+  updownConfig:
+    enable: true
+    period: 3600
+    publishPage: true
