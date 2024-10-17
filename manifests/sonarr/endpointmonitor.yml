@@ -1,0 +1,15 @@
+apiVersion: endpointmonitor.stakater.com/v1alpha1
+kind: EndpointMonitor
+metadata:
+  name: sonarr
+  annotations:
+    site: sonarr.vanad.is
+spec:
+  forceHttps: true
+  urlFrom:
+    ingressRef:
+      name: sonarr
+  updownConfig:
+    enable: true
+    period: 3600
+    publishPage: true
