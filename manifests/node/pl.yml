@@ -3,4 +3,5 @@ kind: Node
 metadata:
   name: pl
   labels:
-    topology.kubernetes.io/zone: waw1
+    topology.kubernetes.io/region: eu-central-waw
+    topology.kubernetes.io/zone: eu-central-waw-a
