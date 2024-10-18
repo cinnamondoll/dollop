@@ -3,4 +3,4 @@ kind: Node
 metadata:
   name: pl
   labels:
-    az: pl  # Label to define the availability zone (Poland)
+    topology.kubernetes.io/zone: waw1
