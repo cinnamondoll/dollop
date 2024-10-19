@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Node
+metadata:
+  name: cashew
+  labels:
+    topology.kubernetes.io/region: eu-central-waw
+    topology.kubernetes.io/zone: eu-central-waw-a

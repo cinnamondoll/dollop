@@ -1,0 +1,19 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: local-zone
+provisioner: driver.longhorn.io
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  numberOfReplicas: "2"
+  staleReplicaTimeout: "10080"
+  fromBackup: ""
+  fsType: "ext4"
+  migratable: "true"
+  dataLocality: "best-effort"
+  replicaAutoBalance: "best-effort"
+  replicaSoftAntiAffinity: "false"
+  replicaZoneSoftAntiAffinity: "true"
+  replicaDiskSoftAntiAffinity: "true"
