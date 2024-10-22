@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: factorio
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: factoriotools/factorio:stable
+    argocd-image-updater.argoproj.io/update-strategy: digest
+    argocd-image-updater.argoproj.io/write-back-method: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: 'https://sqljames.github.io/factorio-server-charts/'
+    chart: factorio-server-charts
+    targetRevision: 1.2.5
+    helm:
+      values: |
+        rcon:
+          external: false
+        image:
+          name: factoriotools/factorio
+          tag: stable
+        persistence:
+          enabled: true
+        factorioServer:
+          save_name: "Treehouse"
+        server_settings:
+          name: Treehouse
+          tags:
+          - modded
+          visibility:
+            public: false
+          require_user_verification: false
+        #account:
+        #  accountSecret: factorio
+        serverPassword:
+          passwordSecret: factorio
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
