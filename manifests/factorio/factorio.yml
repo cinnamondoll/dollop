@@ -2,6 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: factorio
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: factoriotools/factorio:stable
+    argocd-image-updater.argoproj.io/update-strategy: digest
+    argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   project: default
   sources:
@@ -13,6 +17,7 @@ spec:
         rcon:
           external: false
         image:
+          name: factoriotools/factorio
           tag: stable
         persistence:
           enabled: true
