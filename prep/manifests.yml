@@ -11,7 +11,7 @@ spec:
   source:
     path: manifests
     repoURL: https://github.com/cinnamondoll/dollop.git
-    targetRevision: HEAD
+    targetRevision: nuts
     directory:
       recurse: true
   syncPolicy:
