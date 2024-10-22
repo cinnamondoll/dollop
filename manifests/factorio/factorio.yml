@@ -21,7 +21,8 @@ spec:
           tag: stable
         persistence:
           enabled: true
-          persistence.dataDir.existingClaim: factorio
+          dataDir:
+            existingClaim: factorio
         factorioServer:
           save_name: "Treehouse"
         server_settings:
