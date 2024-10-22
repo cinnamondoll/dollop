@@ -1,13 +1,18 @@
 apiVersion: k0sctl.k0sproject.io/v1beta1
 kind: Cluster
 metadata:
-  name: k0s-cluster
+  name: vanadis
 spec:
   hosts:
     - role: controller+worker
       noTaints: true
       ssh:
-        address: ns3128072.ip-54-38-195.eu
+        address: cashew.vanad.is
+        user: debian
+    - role: controller+worker
+      noTaints: true
+      ssh:
+        address: pistachio.vanad.is
         user: debian
   k0s:
     version: v1.30.4+k0s.0
@@ -15,8 +20,13 @@ spec:
       apiVersion: k0s.k0sproject.io/v1beta1
       kind: ClusterConfig
       metadata:
-        name: k0s-cluster
+        name: vanadis
       spec:
         api:
           extraArgs:
             service-node-port-range: 53-32767
+        network:
+          provider: calico
+          calico:
+            wireguardEnabled: true
+            mtu: 0
