@@ -9,3 +9,4 @@ spec:
     requests:
       storage: 2Gi
   storageClassName: local-storage
+  volumeName: jellyfin
