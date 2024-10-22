@@ -9,4 +9,3 @@ spec:
     requests:
       storage: 100Gi
   storageClassName: local-storage
-  volumeName: transcodes
