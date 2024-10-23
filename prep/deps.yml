@@ -4,6 +4,9 @@
   tasks:
     - name: install debian packages
       apt:
-        name: open-iscsi
+        name:
+          - open-iscsi
+          - nfs-common
+          - cryptsetup
         state: present
 
