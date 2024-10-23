@@ -9,3 +9,4 @@ spec:
     requests:
       storage: 100M
   storageClassName: local-storage
+  volumeName: unmined

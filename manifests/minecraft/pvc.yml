@@ -9,3 +9,4 @@ spec:
     requests:
       storage: 15Gi
   storageClassName: local-storage
+  volumeName: minecraft
