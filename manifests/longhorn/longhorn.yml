@@ -14,6 +14,14 @@ spec:
           jobEnabled: false
         persistence:
           defaultClass: false
+        defaultSettings:
+          defaultDataLocality: best-effort
+          defaultReplicaCount: 2
+          replicaZoneSoftAntiAffinity: true
+          replicaAutoBalance: best-effort
+          storageMinimalAvailablePercent: 5
+          storageReservedPercentageForDefaultDisk: 1
+          detachManuallyAttachedVolumesWhenCordoned: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: longhorn-system
