@@ -10,3 +10,5 @@ spec:
   cron: "0 0 * * *"
   retain: 7
   concurrency: 1
+  parameters:
+    full-backup-interval: "7"
