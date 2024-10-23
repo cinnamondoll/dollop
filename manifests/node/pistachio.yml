@@ -5,3 +5,5 @@ metadata:
   labels:
     topology.kubernetes.io/region: eu-central-waw
     topology.kubernetes.io/zone: eu-central-waw-a
+  annotations:
+    node.longhorn.io/default-node-tags: '["pistachio"]'
