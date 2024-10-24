@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: botzin
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/yutzinvr/botzin:latest
+    argocd-image-updater.argoproj.io/update-strategy: digest
+    argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   replicas: 1
   selector:
@@ -14,7 +18,7 @@ spec:
     spec:
       containers:
       - name: botzin
-        image: cinnamondoll/botzin
+        image: ghcr.io/yutzinvr/botzin:latest
         imagePullPolicy: Always
         env:
         - name: DISCORD_TOKEN
