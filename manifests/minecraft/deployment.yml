@@ -12,6 +12,8 @@ spec:
       labels:
         app: minecraft
     spec:
+      nodeSelector:
+        topology.kubernetes.io/zone: eu-central-waw-a
       containers:
         - name: minecraft
           image: marctv/minecraft-papermc-server:1.20.1
