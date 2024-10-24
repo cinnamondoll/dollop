@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipv4
+spec:
+  selector:
+    app: ipv4
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 6081

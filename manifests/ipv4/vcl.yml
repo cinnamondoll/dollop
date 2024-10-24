@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+  default.vcl: |
+    vcl 4.0;
+    import std;
+    backend default none;
+
+    sub vcl_recv {
+      set req.http.ip = regsub(req.http.X-Forwarded-For, "^[ ]*([^, ]+).*", "\1");
+      std.log(req.http.ip);
+      return (synth(200));
+    }
+
+    sub vcl_synth {
+      set resp.status = 200;
+      set resp.http.Content-Type = "text/plain; charset=utf-8";
+      synthetic(req.http.ip);
+      return (deliver);
+    }
+kind: ConfigMap
+metadata:
+  name: vcl

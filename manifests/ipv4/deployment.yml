@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipv4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ipv4
+  template:
+    metadata:
+      labels:
+        app: ipv4
+    spec:
+      containers:
+        - name: varnish
+          image: varnish:7.6
+          ports:
+            - containerPort: 6081
+          volumeMounts:
+            - name: vcl
+              mountPath: /etc/varnish/default.vcl
+              subPath: default.vcl
+          env:
+            - name: VARNISH_HTTP_PORT
+              value: "6081"
+      volumes:
+        - name: vcl
+          configMap:
+            name: vcl
