@@ -16,7 +16,7 @@ spec:
             fsGroup: 9001
           containers:
           - name: unmined-cli
-            image: ghcr.io/cinnamondoll/unmined-cli:0.19.43
+            image: ghcr.io/molnia1311/unmined-cli:0.19.43
             imagePullPolicy: IfNotPresent
             args:
               - web

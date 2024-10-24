@@ -24,7 +24,7 @@ At the moment you'd have to change a bunch of things after a fork, like [prep/ho
 
 PS use my [updown.io][6] referral, thank you~
 
-[1]: https://github.com/cinnamondoll/dollop-secrets
+[1]: https://github.com/molnia1311/dollop-secrets
 [2]: prep/hosts
 [3]: prep/k0sctl.yml
 [4]: https://github.com/argoproj/argo-cd

@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: manifests
-    repoURL: https://github.com/cinnamondoll/dollop.git
+    repoURL: https://github.com/molnia1311/dollop.git
     targetRevision: nuts
     directory:
       recurse: true
@@ -18,7 +18,7 @@ spec:
     automated:
       allowEmpty: true
       prune: true
-      selfHeal: true
+      selfHeal: false
     syncOptions:
       - Validate=false
       - CreateNamespace=true

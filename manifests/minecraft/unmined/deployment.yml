@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: darkhttpd
-        image: ghcr.io/cinnamondoll/darkhttpd:latest
+        image: ghcr.io/molnia1311/darkhttpd:latest
         volumeMounts:
         - name: unmined
           mountPath: /var/www/htdocs

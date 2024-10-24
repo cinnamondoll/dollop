@@ -32,14 +32,14 @@ generate a ssh-key pair for argocd <-> github connection:
 
 add the ssh-key to the secrets github repo:
 
-- visit https://github.com/cinnamondoll/secrets/settings/keys/new
+- visit https://github.com/molnia1311/secrets/settings/keys/new
 - paste the public portion of the key from earlier `cat ~/.ssh/argocd.pub`
 - no write access needed
 
 add the secrets repo to argocd:
 
     argocd login --core
-    argocd repo add git@github.com:cinnamondoll/secrets.git --ssh-private-key-path ~/.ssh/argocd
+    argocd repo add git@github.com:molnia1311/secrets.git --ssh-private-key-path ~/.ssh/argocd
     kubectl apply -f secrets.yml
 
 add this repo's `/manifests/` folder as a argocd app, recursively applying everything in it as a argocd app too:

@@ -16,7 +16,7 @@ spec:
         fsGroup: 1000
       containers:
       - name: aria
-        image: ghcr.io/cinnamondoll/aria:1.36.0
+        image: ghcr.io/molnia1311/aria:1.36.0
         volumeMounts:
         - name: data
           mountPath: /mnt/data/hold
@@ -123,7 +123,7 @@ spec:
         - containerPort: 6967
         - containerPort: 6968
       - name: ariang
-        image: ghcr.io/cinnamondoll/ariang:1.3.7
+        image: ghcr.io/molnia1311/ariang:1.3.7
         ports:
         - containerPort: 80
       volumes:
