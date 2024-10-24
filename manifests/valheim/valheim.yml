@@ -14,10 +14,7 @@ spec:
         serverName: Treehouse
         passwordSecret: valheim
         storage:
-          kind: persistentVolumeClaim
-          pvc:
-            storageClassName: local-storage
-            size: 20Gi
+          kind: emptyDir
         serverStorage:
           kind: persistentVolumeClaim
           pvc:
@@ -34,3 +31,17 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
+  patchesStrategicMerge:
+    - target:
+        group: apps
+        version: v1
+        kind: Deployment
+        name: valheim
+      patch: |-
+        spec:
+          template:
+            spec:
+              volumes:
+                - name: gamefiles
+                  persistentVolumeClaim:
+                    claimName: valheim-world-data
