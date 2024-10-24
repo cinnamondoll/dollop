@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tidb-operator
+spec:
+  project: default
+  sources:
+  - repoURL: 'https://charts.pingcap.org'
+    chart: tidb-operator
+    targetRevision: v1.6.0
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - Validate=false
