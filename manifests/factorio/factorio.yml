@@ -16,9 +16,12 @@ spec:
       values: |
         rcon:
           external: false
+        nodeSelector:
+          topology.kubernetes.io/zone: eu-central-waw-a
         image:
           name: factoriotools/factorio
           tag: stable
+          pullPolicy: IfNotPresent
         persistence:
           enabled: true
           dataDir:
